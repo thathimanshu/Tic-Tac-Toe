@@ -1,0 +1,39 @@
+body{
+    background-color: hsl(210, 12%, 10%);
+    margin: 0; 
+}
+.main{
+    height: 100dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.board{
+    background-color: hsl(210, 12%, 15%);
+    height: 350px;
+    width: 350px;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    grid-template-rows: repeat(3,1fr);
+    grid-template-columns: repeat(3,1fr);
+    padding: 1rem;
+    border-radius: 1rem;
+    grid-gap: 0.5rem 0.5rem;
+}
+.cell{
+    background-color: hsl(210, 12%, 25%);
+    height: 100%;
+    width: 100%;
+    border-radius: 1rem;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+}
+.cell:hover{
+    background-color: hsl(210, 12%, 35%);
+}
+.tick{
+    height: 100%;
+    width: 100%;
+}
