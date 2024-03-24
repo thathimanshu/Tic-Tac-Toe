@@ -64,9 +64,10 @@ function updateCell(cell,idx){
     checkWinner(idx,currPlayer);
     turns[currPlayer-1].push(idx);
     currPlayer = currPlayer == 1 ? 2: 1;
-    if(running)
-    statusText.textContent= currPlayer == 1? "X's turn" : "O's turn"
-    lightenCell();
+    if(running){
+        statusText.textContent= currPlayer == 1? "X's turn" : "O's turn";
+        lightenCell();
+    }
 }
 function lightenCell(){
     if(turns[currPlayer-1].length==3){
