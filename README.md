@@ -13,12 +13,12 @@ The game is deployed and playable at [Tic Tac Toe Game](https://thetictactoe.ver
 
 
 ## Usage
-
-1. Click on the grid cells to place your symbol (X or O).
-2. The game alternates turns between players.
-3. The first player to get three of their symbols in a row, column, or diagonal wins.
-4. If all cells are filled without a winner, the game ends in a tie.
-5. Click the "Restart" button to start a new game.
+1. Click Start to start the game
+2. Click on the grid cells to place your symbol (X or O).
+3. The game alternates turns between players.
+4. The first player to get three of their symbols in a row, column, or diagonal wins.
+5. If there are already 3 symbols of one type on the board, placing the 4th one will remove the oldest symbol of same type.
+6. Click the "Restart" button to start a new game.
 
 ## Development
 
