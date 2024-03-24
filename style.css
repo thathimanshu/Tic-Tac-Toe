@@ -74,6 +74,9 @@ body{
 .win-cell:hover,.lose-cell:hover{
     background-color: hsl(210, 12%, 25%);
 }
+.slidecontainer{
+    margin-top: 1rem;
+}
 
 #version{
     position: fixed;
