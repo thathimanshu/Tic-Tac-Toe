@@ -44,7 +44,7 @@ body{
     grid-template-columns: repeat(3,1fr);
     padding: 1rem;
     border-radius: 1rem;
-    grid-gap: 0.5rem 0.5rem;
+    grid-gap: 0.7rem 0.7rem;
 }
 .cell{
     background-color: hsl(210, 12%, 25%);
@@ -64,5 +64,17 @@ body{
     width: 100%;
 }
 .win-cell{
-    border-color:  greenyellow;
+    border-color:  #A0EE85;
+    box-shadow: 0px 0px 8px #A0EE85;
+}
+.lighten{
+    opacity: 60%;
+}
+.win-cell:hover,.lose-cell:hover{
+    background-color: hsl(210, 12%, 25%);
+}
+@media screen and (min-width: 600px) {
+    .slidecontainer{
+        display: none;
+    }
 }
