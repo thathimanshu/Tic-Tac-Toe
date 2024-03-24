@@ -1,5 +1,6 @@
 const cells = document.querySelectorAll(".cell");
 const statusText = document.querySelector("#turn");
+const startBtn = document.querySelector("#start");
 let turns = [[],[]]; //[x] [o]
 const winCondition = [
     [0,1,2],
@@ -11,35 +12,47 @@ const winCondition = [
     [0,4,8],
     [2,4,6]
 ];
-const options = new Array(9).fill("-1");
-let idx = 0;
+let options = new Array(9).fill("-1");
 let currPlayer = 1;
-const running = false;
-initialize();
+let running = false;
+let gameStarted = false;
 
-function initialize(){
-    statusText.textContent="X's turn"
-    //document.querySelector("#start").textContent='Restart';
-    //document.querySelector("#start").addEventListener("click",startGame());
-    for(let cell of cells){
-        cell.addEventListener("click",cellClick);
+
+startBtn.addEventListener("click",()=>{
+    if(!gameStarted){
+        startBtn.textContent='Restart';
+        initialize();
+        gameStarted = true;
     }
-    document.querySelector("#zoom").addEventListener("input",(event)=>{
+    else{
+        restartGame();
+    }
+});
+function initialize(){
+    running = true;
+    statusText.textContent="X's turn"
+    if(!gameStarted){
         for(let cell of cells){
-            let zoomValue = event.target.value;
-            cell.style.height = zoomValue+"rem";
-            cell.style.width = zoomValue+"rem";
+            cell.addEventListener("click",cellClick);
         }
-    });
+        document.querySelector("#zoom").addEventListener("input",(event)=>{
+            for(let cell of cells){
+                let zoomValue = event.target.value;
+                cell.style.height = zoomValue+"rem";
+                cell.style.width = zoomValue+"rem";
+            }
+        });
+    }
 }
 function cellClick(){
     const cellIdx = this.getAttribute("cellIndex");
-    if(options[cellIdx]!=-1){
+    if(!running || options[cellIdx]!=-1){
         return;
     }
     updateCell(this,cellIdx);
     
 }
+
 function updateCell(cell,idx){
     removeLightenCell();
     options[idx] = currPlayer;
@@ -51,6 +64,8 @@ function updateCell(cell,idx){
     checkWinner(idx,currPlayer);
     turns[currPlayer-1].push(idx);
     currPlayer = currPlayer == 1 ? 2: 1;
+    if(running)
+    statusText.textContent= currPlayer == 1? "X's turn" : "O's turn"
     lightenCell();
 }
 function lightenCell(){
@@ -73,6 +88,7 @@ function removeLightenCell(){
 function checkWinner(){
     for(let check of winCondition){
         if(options[check[0]]!=-1 && options[check[0]]==options[check[1]] && options[check[1]]==options[check[2]]){
+            running = false;
             playerWins(check);
         }
     }
@@ -87,7 +103,20 @@ function playerWins(arr) {
             cell.classList.add("lose-cell");
         }
     }
+    statusText.textContent = currPlayer == 1? "X wins" : "O wins";
 }
 function restartGame(){
-    
+    removeLightenCell();
+    turns = [[],[]];
+    options = new Array(9).fill("-1");
+    currPlayer = 1;
+    let ticks = document.querySelectorAll(".tick");
+    for(let tick of ticks){
+        tick.parentNode.removeChild(tick);
+    }
+    for(let cell of cells){
+        cell.classList.remove("lose-cell");
+        cell.classList.remove("win-cell");
+    }
+    statusText.textContent= currPlayer == 1? "X's turn" : "O's turn"
 }
