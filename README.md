@@ -1,10 +1,11 @@
 # Tic-Tac-Toe
 
+This is a special version of Tic Tac Toe game built using HTML, CSS, and JavaScript. The game allows two players to take turns placing their symbols (X and O) on a 3x3 grid. The objective is to get three of your symbols in a row, column, or diagonal.
+
 ## Deployment
 
 The game is deployed and playable at [Tic Tac Toe Game](https://thetictactoe.vercel.app/).
 
-This is a simple Tic Tac Toe game built using HTML, CSS, and JavaScript. The game allows two players to take turns placing their symbols (X and O) on a 3x3 grid. The objective is to get three of your symbols in a row, column, or diagonal.
 
 ## Special Features
 
