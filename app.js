@@ -17,6 +17,13 @@ let currPlayer = 1;
 let running = false;
 let gameStarted = false;
 
+document.querySelector("#zoom").addEventListener("input",(event)=>{
+    for(let cell of cells){
+        let zoomValue = event.target.value;
+        cell.style.height = zoomValue+"rem";
+        cell.style.width = zoomValue+"rem";
+    }
+});
 
 startBtn.addEventListener("click",()=>{
     if(!gameStarted){
@@ -35,13 +42,6 @@ function initialize(){
         for(let cell of cells){
             cell.addEventListener("click",cellClick);
         }
-        document.querySelector("#zoom").addEventListener("input",(event)=>{
-            for(let cell of cells){
-                let zoomValue = event.target.value;
-                cell.style.height = zoomValue+"rem";
-                cell.style.width = zoomValue+"rem";
-            }
-        });
     }
 }
 function cellClick(){
