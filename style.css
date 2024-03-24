@@ -5,8 +5,33 @@ body{
 .main{
     height: 100dvh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+#start{
+    margin-top: 1rem;
+    border: none;
+    outline: none;
+    height: 2rem;
+    width: 5rem;
+    border: 2px solid hsl(201, 92%, 32%);
+    background-color: hsl(201, 92%, 50%);
+    color: white;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    box-shadow: 0 0 12px hsl(201, 92%, 52%);
+}
+#start:hover{
+    background-color: hsl(120, 81%, 56%);
+    border-color: hsl(120, 81%, 46%);
+    box-shadow: 0 0 16px hsl(120, 81%, 56%);
+}
+#start:active{
+    background-color: hsl(120, 81%, 76%);
+}
+#turn{
+    color: white;
 }
 .board{
     background-color: hsl(210, 12%, 15%);
