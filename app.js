@@ -118,5 +118,6 @@ function restartGame(){
         cell.classList.remove("lose-cell");
         cell.classList.remove("win-cell");
     }
-    statusText.textContent= currPlayer == 1? "X's turn" : "O's turn"
+    statusText.textContent= currPlayer == 1? "X's turn" : "O's turn";
+    running = true;
 }
